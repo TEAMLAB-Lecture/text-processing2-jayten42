@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 #######################
 # Test Processing II  #
 #######################
@@ -28,7 +30,10 @@ def digits_to_words(input_string):
             >>> tp2.digits_to_words(digits_str2)
             'three one four one five'
     """
-    digit_string = None
+    digit_word = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"]
+    digits = [int(chr) for chr in input_string if chr.isdigit()]
+
+    digit_string = " ".join([digit_word[digit] for digit in digits])
     return digit_string
 
 
@@ -64,5 +69,6 @@ def to_camel_case(underscore_str):
             >>> tp2.to_camel_case(underscore_str3)
             "alreadyCamel"
     """
-    camelcase_str = None
+    tokens = underscore_str.split("_")
+    camelcase_str = "".join([token if i == 0 else token.capitalize() for i, token in enumerate(tokens)])
     return camelcase_str
