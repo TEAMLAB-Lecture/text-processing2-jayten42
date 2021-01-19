@@ -70,5 +70,7 @@ def to_camel_case(underscore_str):
             "alreadyCamel"
     """
     tokens = underscore_str.split("_")
-    camelcase_str = "".join([token if i == 0 else token.capitalize() for i, token in enumerate(tokens)])
+    tokens = [token.capitalize() for token in tokens if token]
+    tokens[0] = tokens[0].lower()
+    camelcase_str = "".join(tokens)
     return camelcase_str
